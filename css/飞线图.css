@@ -1,0 +1,18 @@
+/* 防止页面布局中的其他部分影响飞线图 */
+.fill-h {
+    width: 100%; /* 使用全宽 */
+    height: 400px; /* 设置合适的高度 */
+    position: relative; /* 确保容器内的内容位置不受影响 */
+    background-color: #f4f4f4; /* 设置背景色，避免空白显示 */
+    border: 1px solid #ddd; /* 添加边框更好区分区域 */
+}
+
+/* 如果飞线图有动态动画效果，给容器添加过渡 */
+.fill-h {
+    transition: all 0.3s ease; /* 添加平滑过渡效果 */
+}
+
+/* 可选：给飞线图容器添加阴影效果 */
+.fill-h {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

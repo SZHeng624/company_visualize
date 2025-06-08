@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <title>气泡图 - ECharts 示例</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #chart {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+        var chart = echarts.init(document.getElementById('chart'));
+
+        var data = [{
+            'model': 'Claude 3.5 Sonnet New',
+            'size': 1000,
+            'MMLU': 90.5,
+            'GSM8K': 92.5,
+            'publisher': 'Anthropic'
+        },
+        {
+            'model': 'GPT-4o',
+            'size': 1000,
+            'MMLU': 88.7,
+            'GSM8K': 90.5,
+            'publisher': 'OpenAI'
+        }];
+ 
+        // 将publisher映射为颜色 
+        var colors = { 
+            'Anthropic': '#FF6347', // 红色 
+            'OpenAI': '#1E90FF', // 蓝色 
+            'Facebook AI研究实验室': '#32CD32', // 绿色 
+            '阿里巴巴': '#FF4500', // 金色 
+            '亚马逊': '#8A2BE2', // 紫色 
+            'Google Deep Mind': '#FFD700', // 橙色 
+            'Google Research': '#00FA9A', // 春绿色 
+            'MistralAI': '#00BFFF', // 深天蓝 
+            '智谱AI': '#A52A2A', // 棕色 
+            'xAI': '#D2691E', // 巧克力色 
+            'Stability AI': '#2E8B57', // 海洋绿 
+            '个人': '#DCDCDC', // 灰色 
+            '元象XVERSE': '#CD5C5C', // 印度红 
+            'Deci': '#FF1493', // 深粉色 
+            'A21 Labs': '#00BFFF', // 深天蓝 
+            '中科闻歌': '#8B4513', // 棕色 
+            '北京智源人工智能研究院': '#A0522D' // 沙棕色 
+        };
+
+        // 处理数据，若size为0或为空则替换为500 
+        var chartData = data.map(function (item) { 
+            var size = item.size || 500;  // 默认值500 
+            return { 
+                name: item.model, 
+                value: [item.MMLU, item.GSM8K || 0, size], 
+                itemStyle: { 
+                    color: colors[item.publisher] || '#808080' // 默认灰色 
+                },
+                publisher: item.publisher // 添加发布者字段
+            }; 
+        }); 
+
+        var option = { 
+            title: { 
+                text: '气泡图示例' 
+            }, 
+            tooltip: { 
+                trigger: 'item', 
+                formatter: function (params) { 
+                    return params.name + 
+                           '<br/>MMLU: ' + params.value[0] + 
+                           '<br/>GSM8K: ' + params.value[1] + 
+                           '<br/>参数大小: ' + params.value[2] +
+                           '<br/>发布者: ' + params.data.publisher; // 添加发布者信息
+                } 
+            },
+            legend: {  // 图例配置
+                data: Object.keys(colors),  // 使用颜色对象的键作为图例的名称
+                orient: 'horizontal',  // 图例排布方向
+                left: 'center',  // 图例放置在水平居中
+                top: '5%',  // 图例放置在顶部，并且稍微向下
+            },
+            grid: {  // 调整图表区域
+                top: '20%',  // 给图表顶部留出空间
+                bottom: '15%',  // 给底部留出空间
+                left: '10%',
+                right: '10%',
+            },
+            xAxis: { 
+                name: 'MMLU', 
+                type: 'value', 
+                boundaryGap: false,
+                min: 0  // 设置 x 轴从 0 开始
+            }, 
+            yAxis: { 
+                name: 'GSM8K', 
+                type: 'value',
+                min: 0  // 设置 y 轴从 0 开始
+            },
+            series: [{ 
+                type: 'scatter', 
+                data: chartData, 
+                symbolSize: function (data) { 
+                    return data[2] / 100; // size作为气泡大小 
+                }, 
+                emphasis: { 
+                    focus: 'series' 
+                } 
+            }] 
+        };
+
+        // 使用刚指定的配置项和数据显示图表 
+        chart.setOption(option); 
+    </script> 
+</body> 
+
+</html>

@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* 指定字符编码为UTF-8 */
+
+/********** Global **********/
+/* 常用背景色： #0b0f34 (6,64,102) (29,45,57) (7,33,58) (8,13,28) (15,43,36) */
+
+/* 设置html和body元素的样式 */
+html,
+body {
+    width: 100%;
+    /* 宽度为100% */
+    height: 100%;
+    /* 高度为100% */
+    min-height: 635px;
+    /* 最小高度为635px */
+    font-family: "microsoft yahei", arial, sans-serif;
+    /* 设置字体 */
+    /* background-color: #0f1c30; 设置背景色为深蓝色 */
+    background-repeat: no-repeat;
+    /* 背景图像不重复 */
+    background-position: center;
+    /* 背景图像居中 */
+    background-size: 100% 100%;
+    /* 背景图像填充整个页面 */
+    overflow-x: hidden;
+    /* 禁止横向滚动条 */
+    overflow-y: auto;
+    /* 允许纵向滚动条 */
+}
+
+/* 定义不同的背景图像，可以切换不同背景 */
+/* body.main {background-image: url("../img/bg01.png");} */
+body.bg02 {
+    background-image: url("../img/bg02.png");
+}
+
+body.bg03 {
+    background-image: url("../img/bg03.png");
+}
+
+body.bg04 {
+    background-image: url("../img/bg04.png");
+}
+
+
+
+/* 页面内容的包裹容器样式 */
+.wrapper {
+    position: relative;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 555px;
+    /* 确保父元素有足够的高度 */
+    height: calc(100vh - 120px);
+    /* 计算高度，减去顶部偏移 */
+}
+
+/* 容器的样式 */
+.container-fluid {
+    height: 100%;
+    /* 高度为100% */
+    min-height: 100%;
+    /* 最小高度为100% */
+}
+
+/* 栅格系统的样式，调整间距 */
+.row {
+    margin-left: -7px;
+    /* 左边距为-7px */
+    margin-right: -8px;
+    /* 右边距为-8px */
+}
+
+.row>div {
+    padding-left: 7px;
+    /* 左内边距为7px */
+    padding-right: 8px;
+    /* 右内边距为8px */
+}
+
+/* xpanel的包装样式 */
+.xpanel-wrapper {
+    padding-bottom: 15px;
+    /* 底部内边距为15px */
+    box-sizing: border-box;
+    /* 包括内边距和边框在内的总宽度 */
+    width: 1680px;
+    /* 设置宽度为100% */
+    height: 400px;
+    /* 设置高度为400px */
+
+
+}
+
+/* xpanel第一种样式 */
+.xpanel-wrapper-1 {
+    height: 100%;
+    /* 高度为100% */
+    width: 100%;
+}
+
+/* xpanel的样式 */
+.xpanel {
+    padding: 15px;
+    /* 内边距为15px */
+    height: 90%;
+    /* 高度为100% */
+    min-height: 170px;
+    /* 最小高度为170px */
+    background: url("../image/panel.png") center no-repeat;
+    /* 设置背景图，居中显示且不重复 */
+    background-size: 90% 100%;
+    /* 背景图像填充整个容器 */
+    box-sizing: border-box;
+    /* 包括内边距和边框在内的总宽度 */
+
+
+}
+
+.text p {
+    display: block;
+    visibility: visible;
+    color: #ffffff;
+    /* 确保文字颜色不是透明的 */
+}
+
+/* 工具样式 */
+.fill-h {
+    height: 100%;
+    min-height: 100%;
+}
+
+/* 高度为100%，最小高度为100% */
+.no-margin {
+    margin: 0 !important;
+}
+
+/* 去除外边距 */
+.no-padding {
+    padding: 0 !important;
+}
+
+/* 去除内边距 */
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* 设置滚动条轨道透明 */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    /* 设置滚动条滑块的圆角 */
+    background-color: rgba(0, 0, 0, 0.3);
+    /* 设置滚动条滑块的颜色 */
+}

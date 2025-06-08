@@ -1,0 +1,65 @@
+/*轮播图*/
+/* 轮播图容器 */
+.banner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.527); /* 添加阴影 */
+}
+
+/* 轮播图外部容器 */
+.banner-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 轮播图内容 */
+.banner-list {
+    display: flex; /* 使用flex布局，使所有轮播图排列在一行 */
+    width: 100%; /* 宽度为100% */
+    height: 100%;
+    transition: transform 0.75s ease-in-out; /* 设置滑动动画 */
+}
+
+/* 每个轮播图的容器 */
+.banner-slide {
+    flex: 0 0 100%; /* 每个轮播图占100%的宽度 */
+    height: 100%;
+}
+
+.banner-slide img {
+    width: 100%; /* 图片填满容器 */
+    height: 100%; /* 保证图片高度适配容器 */
+    object-fit: cover; /* 防止图片拉伸变形 */
+}
+
+/* 轮播图分页器 */
+.banner-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -50px; /* 使分页器居中 */
+}
+
+.banner-pagination ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.banner-pagination li {
+    width: 20px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer; /* 鼠标悬浮时显示手型 */
+}
+
+.banner-pagination .pagination-active {
+    background-color: #ff8f2b;
+}
+

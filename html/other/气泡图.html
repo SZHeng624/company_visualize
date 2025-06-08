@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>气泡图 - ECharts 示例</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.0/dist/echarts.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        #chart {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+    <script>
+        var chart = echarts.init(document.getElementById('chart'));
+
+        var data = [
+            { model: 'Claude 3.5 Sonnet New', size: 0, MMLU: 90.5, GSM8K: 92.5, publisher: 'Anthropic' },
+            { model: 'GPT-4o', size: 0, MMLU: 88.7, GSM8K: 90.5, publisher: 'OpenAI' },
+            { model: 'Claude 3.5 Sonnet', size: 0, MMLU: 88.7, GSM8K: 96.4, publisher: 'Anthropic' },
+            { model: 'Llama3.1-405B Instruct', size: 4050, MMLU: 87.3, GSM8K: 96.8, publisher: 'Facebook AI研究实验室' },
+            { model: 'Claude3-Opus', size: 0, MMLU: 86.8, GSM8K: 95, publisher: 'Anthropic' },
+            { model: 'GPT-4', size: 1750, MMLU: 86.4, GSM8K: 87.1, publisher: 'OpenAI' },
+            { model: 'Llama3-400B-Instruct-InTraining', size: 4000, MMLU: 86.1, GSM8K: 94.1, publisher: 'Facebook AI研究实验室' },
+            { model: 'Qwen2.5-72B', size: 727, MMLU: 86.1, GSM8K: 91.5, publisher: '阿里巴巴' },
+            { model: 'Llama3.3-70B-Instruct', size: 700, MMLU: 86, GSM8K: 91.1, publisher: 'Facebook AI研究实验室' },
+            { model: 'Amazon Nova Pro', size: 500, MMLU: 85.9, GSM8K: 94.8, publisher: '亚马逊' },
+            { model: 'Llama3.1-405B', size: 4050, MMLU: 85.2, GSM8K: null, publisher: 'Facebook AI研究实验室' },
+            { model: 'Llama3-400B-InTraining', size: 4000, MMLU: 84.8, GSM8K: null, publisher: 'Facebook AI研究实验室' },
+            { model: 'Phi 4 - 14B', size: 140, MMLU: 84.4, GSM8K: 80.6, publisher: 'Microsoft' },
+            { model: 'Qwen2-72B', size: 727, MMLU: 84.2, GSM8K: 89.5, publisher: '阿里巴巴' },
+            { model: 'Gemini-ultra', size: 0, MMLU: 83.7, GSM8K: 88.9, publisher: 'DeepMind' },
+            { model: 'Llama3.1-70B-Instruct', size: 700, MMLU: 83.6, GSM8K: 95.1, publisher: 'Facebook AI研究实验室' },
+            { model: 'Qwen2.5-32B', size: 320, MMLU: 83.3, GSM8K: 92.9, publisher: '阿里巴巴' },
+            { model: 'Qwen2-72B-Instruct', size: 720, MMLU: 82.3, GSM8K: 91.1, publisher: '阿里巴巴' },
+            { model: 'Llama3-70B-Instruct', size: 700, MMLU: 82, GSM8K: 93, publisher: 'Facebook AI研究实验室' },
+            { model: 'GPT-4o mini', size: 0, MMLU: 82, GSM8K: 87, publisher: 'OpenAI' },
+            { model: 'Gemini 1.5 Pro', size: 0, MMLU: 81.9, GSM8K: 91.7, publisher: 'Google Deep Mind' },
+            { model: 'GLM4', size: 0, MMLU: 81.5, GSM8K: 87.6, publisher: '智谱AI' },
+            { model: 'Grok-1.5', size: 0, MMLU: 81.3, GSM8K: 90, publisher: 'xAI' },
+            { model: 'Mistral Large', size: 0, MMLU: 81.2, GSM8K: 81, publisher: 'MistralAI' },
+            { model: 'Claude 3.5 Haiku', size: 0, MMLU: 80.9, GSM8K: 85.6, publisher: 'Anthropic' },
+            { model: 'Qwen2.5-Math-72B', size: 727, MMLU: 80.8, GSM8K: 95.9, publisher: '阿里巴巴' },
+            { model: 'YAYI2-30B', size: 300, MMLU: 80.5, GSM8K: 71.2, publisher: '中科闻歌' },
+            { model: 'Amazon Nova Lite', size: 500, MMLU: 80.5, GSM8K: 94.5, publisher: '亚马逊' },
+            { model: 'Qwen1.5-110B', size: 1100, MMLU: 80.4, GSM8K: 85.4, publisher: '阿里巴巴' },
+            { model: 'DeepSeek V2.5', size: 2360, MMLU: 80.4, GSM8K: 95.1, publisher: 'DeepSeek-AI' },
+            { model: 'Qwen2.5-14B', size: 140, MMLU: 79.7, GSM8K: 92.9, publisher: '阿里巴巴' },
+            { model: 'Llama3-70B', size: 700, MMLU: 79.5, GSM8K: null, publisher: 'Facebook AI研究实验室' },
+            { model: 'Llama3.1-70B', size: 700, MMLU: 79.3, GSM8K: null, publisher: 'Facebook AI研究实验室' },
+            { model: 'Gemini-pro', size: 1000, MMLU: 79.13, GSM8K: 86.5, publisher: 'DeepMind' },
+            { model: 'Claude3-Sonnet', size: 0, MMLU: 79, GSM8K: 92.3, publisher: 'Anthropic' },
+            { model: 'DeepSeek-V2-236B', size: 2360, MMLU: 78.5, GSM8K: 79.2, publisher: 'DeepSeek-AI' },
+            { model: 'PaLM 2', size: 3400, MMLU: 78.3, GSM8K: 80.7, publisher: 'Google Research' },
+            { model: 'Phi-3-medium 14B-preview', size: 140, MMLU: 78.2, GSM8K: 90.3, publisher: 'Microsoft' },
+            { model: 'Mixtral-8×22B-MoE', size: 1410, MMLU: 77.75, GSM8K: 78.6, publisher: 'MistralAI' },
+            { model: 'Amazon Nova Micro', size: 500, MMLU: 77.6, GSM8K: 92.3, publisher: '亚马逊' },
+            { model: 'Qwen1.5-72B-Chat', size: 720, MMLU: 77.5, GSM8K: 79.5, publisher: '阿里巴巴' },
+            { model: 'Qwen-72B', size: 720, MMLU: 77.4, GSM8K: 78.9, publisher: '阿里巴巴' },
+            { model: 'Gemini 1', size: 0, MMLU: 77.1, GSM8K: 85.1, publisher: 'Google Deep Mind' }
+        ];
+
+        // 将发布者映射为颜色
+        var colors = {
+            'Anthropic': '#FF6347', // 红色
+            'OpenAI': '#1E90FF', // 蓝色
+            'Facebook AI研究实验室': '#32CD32', // 绿色
+            '阿里巴巴': '#FFD700', // 金色
+            '亚马逊': '#8A2BE2', // 紫色
+            'Google Deep Mind': '#FF4500', // 橙色
+            'Google Research': '#00FA9A', // 春绿色
+            'MistralAI': '#00BFFF', // 深天蓝
+            '智谱AI': '#A52A2A', // 棕色
+            'xAI': '#D2691E', // 巧克力色
+            'Stability AI': '#2E8B57', // 海洋绿
+            '个人': '#DCDCDC', // 灰色
+            '元象XVERSE': '#CD5C5C', // 印度红
+            'Deci': '#FF1493', // 深粉色
+            'A21 Labs': '#00BFFF', // 深天蓝
+            '中科闻歌': '#8B4513', // 棕色
+            '北京智源人工智能研究院': '#A0522D' // 沙棕色
+        };
+
+        // 处理数据，若size为0或为空则替换为500
+        var chartData = data.map(function(item) {
+            var size = item.size || 500;  // 默认值500
+            return {
+                name: item.model,
+                value: [item.MMLU, item.GSM8K || 0, size],
+                itemStyle: {
+                    color: colors[item.publisher] || '#808080' // 默认灰色
+                }
+            };
+        });
+
+        // 配置项
+        var option = {
+            title: {
+                text: '气泡图示例'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: function(params) {
+                    return params.name + '<br/>MMLU: ' + params.value[0] + '<br/>GSM8K: ' + params.value[1] + '<br/>size: ' + params.value[2];
+                }
+            },
+            xAxis: {
+                name: 'MMLU',
+                type: 'value',
+                boundaryGap: false
+            },
+            yAxis: {
+                name: 'GSM8K',
+                type: 'value'
+            },
+            series: [{
+                type: 'scatter',
+                data: chartData,
+                symbolSize: 20,  // 所有点使用统一大小
+                emphasis: {
+                    focus: 'series'
+                }
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表
+        chart.setOption(option);
+    </script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人工智能科技企业概况</title>
+    <!-- 引入 ECharts 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/echarts-3.8.5.min.js"></script>
+    <script type="text/javascript" src="../js/echarts-map-china.js"></script>
+    <link rel="stylesheet" href="../css/企业地区分布.css">
+
+    <script src="../js/导航.js"></script>
+    <link rel="stylesheet" href="../css/导航.css">
+    <link rel="stylesheet" href="../css/轮播图.css">
+    <link rel="stylesheet" href="../css/circle.css">
+    <script src="../js/轮播图.js" defer></script>
+
+    
+    <style>
+        h1{
+            display: flex;
+            justify-content: center;
+        }
+        .wrapper-0{
+            /*元素横向排列*/
+            display: flex;
+            flex-direction:row;
+            gap: 30px;
+        }
+
+
+        .wrapper-1 {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border: 2px solid #3498db;
+        }
+
+        .counter {
+            font-size: 50px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /*饼状图配置*/
+        #pieChart1, #pieChart2 {
+            width: 45%;
+            height: 500px;
+            display: flex;
+        }
+        .wrapper-title{
+            display: flex;
+            justify-content: center;
+            flex-direction:row;
+            /*设置元素间隔*/
+            gap: 33%;
+        }
+
+        .wrapper-pie{
+            display: flex;
+            flex-direction:row;
+            justify-content: center;
+        }
+        .wrapper-table {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    /* 表格 */
+    table {
+        width: 45%;
+        border-collapse: collapse;
+        border-radius: 8px;  /* 增加圆角 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 添加阴影效果 */
+    }
+    
+    th, td {
+        font-size: 12px;  /* 调整字体大小 */
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        color: #fff;
+        transition: background-color 0.3s ease, transform 0.3s ease;  /* 动画效果 */
+    }
+    
+    th {
+        background-color: #1E3A5F;  /* 深蓝色 */
+        color: #fff;  /* 字体颜色为白色 */
+        font-weight: bold;
+        text-transform: uppercase;  /* 字体大写 */
+    }
+
+    td {
+        background-color: #2c3e50;  /* 深灰背景 */
+    }
+
+    /* 切换行背景颜色 */
+    tr:nth-child(even) td {
+        background-color: #34495e;  /* 灰色背景 */
+    }
+
+    /* 鼠标悬停时改变行的背景色和放大效果 */
+    tr:hover {
+        background-color: #1abc9c;  /* 悬停时背景色为绿松石色 */
+        transform: scale(1.02);  /* 鼠标悬停时轻微放大 */
+    }
+    </style>
+
+    
+
+    
+    
+</head>
+<body class="main">
+    
+
+    <div id="header">
+        <!-- 横条 -->
+        <div class="horizontal-bar"></div>
+        <div class="header-wrapper container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="../image/上市公司.png" alt="可画公司 Logo" width="200">
+            </div>
+    
+            <!-- Navigation Bar -->
+            <div class="navbar"> 
+                <ul class="navbar-wrapper">
+                    <li class="navbar-active navbar-item"><a href="../html/main.html">首页</a></li>
+                    <li class="navbar-item"><a href="../html/listedCompany.html">上市公司</a></li>
+                    <li class="navbar-item"><a href="../html/techcompany.html">科技公司</a></li>
+                    <li class="navbar-item dropdown">
+                        <a href="../html/Alibaba.html" class="dropdown-toggle">阿里巴巴</a>
+                    </li>
+                    <li class="navbar-item"><a href="#">联系我们</a></li>
+                    <li class="navbar-item navbar-code"><a href="#">扫码咨询</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <h1>2024 福布斯中国人工智能科技企业 TOP 50</h1>
+    <h2>企业资质</h2>
+    <div class = "wrapper-0">
+        
+        <div class="wrapper-1">
+            <div class="counter" data-end-value="41">41</div>
+            <div class="label">国家高新企业</div>
+        </div>
+        
+        <div class="wrapper-1">
+            <div class="counter" data-end-value="13">13</div>
+            <div class="label">瞪羚企业</div>
+        </div>
+        
+        <div class="wrapper-1">
+            <div class="counter" data-end-value="23">23</div>
+            <div class="label">独角兽企业</div>
+        </div>
+        
+        <div class="wrapper-1">
+            <div class="counter" data-end-value="45">45</div>
+            <div class="label">融资企业</div>
+        </div>
+
+    </div>
+    
+    <h2>企业名单</h2>
+    <div class="wrapper-table">
+        <!-- Table 1 -->
+        <table class="table-1 table">
+            <thead>
+                <tr>
+                    <th>企业简称</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>阿里云</td>
+                </tr>
+                <tr>
+                    <td>爱诗科技</td>
+                </tr>
+                <tr>
+                    <td>爱芯元智</td>
+                </tr>
+                <tr>
+                    <td>百川智能</td>
+                </tr>
+                <tr>
+                    <td>百度智能云</td>
+                </tr>
+                <tr>
+                    <td>冰鉴科技</td>
+                </tr>
+                <tr>
+                    <td>出门问问</td>
+                </tr>
+                <tr>
+                    <td>创新奇智</td>
+                </tr>
+                <tr>
+                    <td>达观数据</td>
+                </tr>
+                <tr>
+                    <td>达闼机器人</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Table 2 -->
+        <table class="table-2 table">
+            <thead>
+                <tr>
+                    <th>企业简称</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>滴普科技</td>
+                </tr>
+                <tr>
+                    <td>第四范式</td>
+                </tr>
+                <tr>
+                    <td>东方财富</td>
+                </tr>
+                <tr>
+                    <td>非夕科技</td>
+                </tr>
+                <tr>
+                    <td>海天瑞声</td>
+                </tr>
+                <tr>
+                    <td>合合信息</td>
+                </tr>
+                <tr>
+                    <td>华院计算</td>
+                </tr>
+                <tr>
+                    <td>京东科技</td>
+                </tr>
+                <tr>
+                    <td>科大讯飞</td>
+                </tr>
+                <tr>
+                    <td>联影智能</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Table 3 -->
+        <table class="table-3 table">
+            <thead>
+                <tr>
+                    <th>企业简称</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>潞晨科技</td>
+                </tr>
+                <tr>
+                    <td>梅卡曼德</td>
+                </tr>
+                <tr>
+                    <td>Momenta</td>
+                </tr>
+                <tr>
+                    <td>平安科技</td>
+                </tr>
+                <tr>
+                    <td>擎朗智能</td>
+                </tr>
+                <tr>
+                    <td>森亿智能</td>
+                </tr>
+                <tr>
+                    <td>杉数科技</td>
+                </tr>
+                <tr>
+                    <td>商汤科技</td>
+                </tr>
+                <tr>
+                    <td>深势科技</td>
+                </tr>
+                <tr>
+                    <td>声通科技</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Table 4 -->
+        <table class="table-4 table">
+            <thead>
+                <tr>
+                    <th>企业简称</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>思谋科技</td>
+                </tr>
+                <tr>
+                    <td>腾讯云智能</td>
+                </tr>
+                <tr>
+                    <td>微亿智造</td>
+                </tr>
+                <tr>
+                    <td>文远知行 WeRide</td>
+                </tr>
+                <tr>
+                    <td>小i机器人</td>
+                </tr>
+                <tr>
+                    <td>小马智行</td>
+                </tr>
+                <tr>
+                    <td>芯驰科技</td>
+                </tr>
+                <tr>
+                    <td>星环科技</td>
+                </tr>
+                <tr>
+                    <td>复星杏脉</td>
+                </tr>
+                <tr>
+                    <td>影谱科技</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <!-- Table 5 -->
+        <table class="table-5 table">
+            <thead>
+                <tr>
+                    <th>企业简称</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>英矽智能</td>
+                </tr>
+                <tr>
+                    <td>优刻得</td>
+                </tr>
+                <tr>
+                    <td>宇树科技</td>
+                </tr>
+                <tr>
+                    <td>月之暗面</td>
+                </tr>
+                <tr>
+                    <td>云从科技</td>
+                </tr>
+                <tr>
+                    <td>云趣科技</td>
+                </tr>
+                <tr>
+                    <td>云天励飞</td>
+                </tr>
+                <tr>
+                    <td>云知声</td>
+                </tr>
+                <tr>
+                    <td>智谱清言</td>
+                </tr>
+                <tr>
+                    <td>中科闻歌</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+
+
+
+
+
+    <h2>企业地区分布</h2>
+
+
+    <script src="../js/数字跳动.js"></script>
+
+    <div id="mapChart"></div>
+
+    <script src = "../js/企业地区分布.js"></script>
+
+    <div class="wrapper-title">
+        <h2>企业注册资金</h2>
+        <h2>企业注册年限</h2>
+    </div>
+    <div class = "wrapper-pie">
+        <div id="pieChart1"></div>
+        <div id="pieChart2"></div>
+    </div>
+
+
+    <script src = "../js/企业注册资金年限分布.js">
+    </script>
+
+    <h1>
+        2024年财富中国科技Top50
+    </h1>
+    <h2>
+        公司赛道分布
+    </h2>
+    <div id="flower" style="height: 500px"></div>
+        <script src="../js/玫瑰图.js"></script>
+
+</body>
+</html>

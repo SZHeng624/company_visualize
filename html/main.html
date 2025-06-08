@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--我想要设计三个页面，一个是所有排名前500上市公司的概览（地理分布，企业资质统计，注册资金，融资轮次）分析。
+第二个是所有上榜科技公司的概览，
+第三个是具体的公司，如百度、阿里的具体的分析。
+请问首页的导航栏应该怎么设计标题 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Company Info, News and More">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/导航.css">
+    <link rel="stylesheet" href="../css/轮播图.css">
+    <link rel="stylesheet" href="../css/circle.css">
+    <script src="../js/轮播图.js" defer></script>
+    <script src="../js/导航.js"></script>
+</head>
+
+<body class="main">
+
+    <div id="header">
+        <!-- 横条 -->
+        <div class="horizontal-bar"></div>
+        <div class="header-wrapper container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="../image/上市公司.png" alt="可画公司 Logo" width="200">
+            </div>
+
+            <!-- Navigation Bar -->
+            <div class="navbar">
+                <ul class="navbar-wrapper">
+                    <li class="navbar-active navbar-item"><a href="../html/main.html">首页</a></li>
+                    <li class="navbar-item"><a href="../html/listedCompany.html">上市公司</a></li>
+                    <li class="navbar-item"><a href="../html/techcompany.html">科技公司</a></li>
+                    <li class="navbar-item dropdown">
+                        <a href="../html/Alibaba.html" class="dropdown-toggle">阿里巴巴</a>
+                    </li>
+                    <li class="navbar-item"><a href="#">联系我们</a></li>
+                    <li class="navbar-item navbar-code"><a href="#">扫码咨询</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- banner横幅 -->
+    <div id="banner" class="banner">
+        <!--banner-wrapper横幅包装器-->
+        <div class="banner-wrapper">
+            <div class="banner-list">
+                <div class="banner-slide">
+                    <img src="../image/轮播图/1.png" alt="轮播图 1" />
+                </div>
+                <div class="banner-slide">
+                    <img src="../image/轮播图/6.png" alt="轮播图 2" />
+                </div>
+                <div class="banner-slide">
+                    <img src="../image/轮播图/5.png" alt="轮播图 3" />
+                </div>
+                <div class="banner-slide">
+                    <img src="../image/轮播图/4.png" alt="轮播图 4" />
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-pagination">
+            <ul>
+                <li class="pagination-active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div id="companies" class="companies">
+        <div class="circle1">
+            <h2 class="circle1-text">上市公司</h2>
+            <div class="text-wrapper wrapper1">
+                <p class="text circle1-p">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本板块展示了全国的上市公司相关数据，包括<strong>中国各省份上市公司分布、2024年上半年各行业增速、财务状况、500强公司营业收入</strong>等数据。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过多种可视化手段展现，帮助用户更清晰地理解当前中国资本市场的整体态势和各细分市场的动态。快速识别出不同省份和行业的市场集中度、发展速度和财务健康状况。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各省份的上市公司分布图帮助揭示区域经济差异，行业增速的趋势图让用户了解各行业的表现。财务状况可视化使复杂的财务数据易于理解，帮助投资者直观评估上市公司的财务稳健性。500强公司营业收入的对比分析展示了行业龙头的市场竞争力和发展潜力，为用户提供了企业间实力对比的直观视角，进一步优化投资组合决策的依据。通过这些可视化分析，用户能够全面把握当前市场的脉搏，在纷繁复杂的数据中提炼出关键的商业洞察。
+                    <br>
+
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="circle2">
+            <h2 class="circle2-text">科技公司</h2>
+
+        </div>
+
+        <div class="text-wrapper wrapper2">
+            <p class="text circle2-p">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科技公司板块专注于中国领先的科技企业，涵盖人工智能、互联网、电子、通信等领域的创新公司。在这一板块中，我们将对两个权威榜单——<strong>2024福布斯中国人工智能科技企业排行榜</strong>和<strong>2024年财富中国科技公司</strong>前50名进行详细分析。数据包括各大科技企业的名单、企业资质、地区分布、注册资金、注册年限以及所处赛道的深度剖析，旨在为科技爱好者、行业从业者以及投资者提供精准的行业洞察。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过全面的榜单分析、行业洞察和多维度的可视化展示，旨在为用户提供一个关于全球领先科技企业的深度剖析，帮助科技行业从业者把握前沿动态，为投资者寻找潜在的优质企业和创新机会，同时为技术爱好者提供权威且详细的科技领域参考资料。
+
+            </p>
+        </div>
+
+        <div class="circle3">
+            <h2 class="circle3-text">知名企业</h2>
+            <div class="text-wrapper wrapper3">
+                <p class="text circle3-p">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本版块将提供具体企业的深度分析。以<strong>阿里巴巴集团控股有限公司</strong>为案例，将从多个维度对其进行全面剖析。阿里巴巴作为中国乃至全球领先的科技巨头，其业务涵盖了电子商务、云计算、数字娱乐、人工智能等多个领域，展现了强大的市场影响力和创新能力。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们对阿里巴巴公司的文化与价值观、业务、各个分布收入分布、各年营业收入与净利润情况、投资情况以及其大模型的研发情况进行分析，不仅可以深入了解阿里巴巴如何通过强大的企业文化、丰富的业务布局、稳定的财务表现以及前瞻性的投资策略不断塑造企业的未来，也能够看到其在技术创新和全球化进程中的战略眼光，为其他企业提供宝贵的经验和参考，为投资者提供数据支持。
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

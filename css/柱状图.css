@@ -1,0 +1,14 @@
+/* 样式调整，使图表并排显示 */
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.chart {
+    width: 45%;
+    /* 每个图表占一半宽度 */
+    height: 500px;
+}

@@ -1,0 +1,126 @@
+        /* body.main {background-image: url("../image/bg01.png");} */
+        .body.main {
+            background-color: blanchedalmond;
+        }
+
+        h3 {
+            color: #ff9a00
+        }
+
+        #pieChart1 {
+            width: 150%;
+            height: 600px;
+            display: flex;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* 横条装饰样式 */
+        .decorative-bar {
+            width: 90%;
+            /* 设置横条的宽度，可以根据需要调整 */
+            height: 5px;
+            /* 横条的高度 */
+            background: linear-gradient(135deg, #FF6347, #FFD700);
+            /* 渐变背景 */
+            margin: 20px auto;
+            /* 垂直居中，水平居中 */
+            border-radius: 15px;
+            /* 添加圆角 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* 阴影效果 */
+            transition: all 0.3s ease;
+            /* 添加过渡动画 */
+        }
+
+        /* 鼠标悬停时的效果 */
+        .decorative-bar:hover {
+            transform: scale(1.1);
+            /* 放大效果 */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            /* 增加阴影 */
+        }
+
+        .wrapper-wordcloud {
+            display: flex;
+            justify-content: space-between;
+            /* 或者使用 space-around, space-evenly 等 */
+            align-items: flex-start;
+            /* 对齐方式可以根据需要调整 */
+        }
+
+        .wordcloud-item {
+            flex: 1;
+            /* 让每个子元素占据相同的空间 */
+            margin-right: 20px;
+            /* 可选：增加间距 */
+        }
+
+        .wordcloud-item:last-child {
+            margin-right: 0;
+            /* 最后一个子元素不需要右边距 */
+        }
+
+        .wrapper-profit {
+            display: flex;
+            justify-content: space-between;
+            /* 或者使用 space-around, space-evenly 等 */
+            align-items: flex-start;
+            /* 对齐方式可以根据需要调整 */
+        }
+
+        .wrapper-profit-sub.profit-item {
+            flex: 1;
+            /* 让每个子元素占据相同的空间 */
+            margin-right: 0;
+            /* 可选：增加间距 */
+
+        }
+
+
+
+        .wrapper-profit-image {
+            padding: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .wrapper-net {
+            position: relative;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #chart-bubble {
+            height: 70%;
+        }
+
+        .wrapper-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 40px;
+            height: 80px;
+            margin-bottom: 40px;
+        }
+
+        .banner {
+            height: 87%;
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .wrapper-profit2 {
+            display: flex;
+            flex-direction: row;
+        }

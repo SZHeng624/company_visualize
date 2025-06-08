@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>投资关系图</title>
+    <!-- 引入ECharts -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    <div id="main" style="height: 100%"></div>
+
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var nodesData = [
+            {name: "阿里巴巴", value: NaN},
+            {name: "Sealos", value: NaN},
+            {name: "ABLY", value: 504},
+            {name: "地平线机器人", value: 1605.36},
+            {name: "星动纪元", value: 300},
+            {name: "晟喜华视", value: NaN},
+            {name: "神漫文化", value: NaN},
+            {name: "Connectly", value: 145.94},
+            {name: "Dify.AI", value: NaN},
+            {name: "源络科技", value: "数千万"},
+            {name: "月之暗面", value: 2189.13},
+            {name: "百川智能", value: 5000},
+            {name: "逐际动力", value: "数亿"},
+            {name: "OceanBase", value: NaN},
+            {name: "瀚博半导体", value: NaN},
+            {name: "来未来科技", value:"数亿"},
+            {name: "iSlide", value: NaN},
+            {name: "精准学", value: 200},
+            // {name: "Lazada", value: 1678.33},
+            {name: "优制娱乐", value: NaN},
+            {name: "长佩文学", value: NaN},
+            {name: "菜鸟网络", value: 3750},
+            {name: "MiniMax稀宇科技", value: 4378.26},
+            {name: "苏宁易购", value: 2847},
+            {name: "Konvy.com", value: 80.27},
+            {name: "东极六感", value: NaN},
+            {name: "Lazada", value: 13367.96},
+            {name: "Visible", value: NaN},
+            {name: "智谱AI", value: 1200},
+            // {name: "百川智能", value: NaN},
+            {name: "奇点临近", value: NaN},
+            {name: "Wook", value: NaN},
+            {name: "致敬未知", value: 72.97},
+            {name: "JBD显耀显示", value: "数亿"},
+            {name: "左袋文化", value: NaN},
+            {name: "COFE App", value: 109.46},
+            {name: "中测智绘", value: "数千万"},
+            {name: "杰成新能源", value: "数亿"},
+            {name: "WorldFirst", value: 3502.61},
+            {name: "博瑞迪", value: "数亿"},
+            {name: "小猴科技", value: NaN},
+            {name: "美小店", value: NaN},
+            {name: "恒宇医疗", value: NaN}
+
+            
+        ];
+
+        var linksData = [
+    {source: "阿里巴巴", target: "Sealos"},
+    {source: "阿里巴巴", target: "ABLY"},
+    {source: "阿里巴巴", target: "地平线机器人"},
+    {source: "阿里巴巴", target: "星动纪元"},
+    {source: "阿里巴巴", target: "晟喜华视"},
+    {source: "阿里巴巴", target: "神漫文化"},
+    {source: "阿里巴巴", target: "Connectly"},
+    {source: "阿里巴巴", target: "Dify.AI"},
+    {source: "阿里巴巴", target: "源络科技"},
+    {source: "阿里巴巴", target: "月之暗面"},
+    {source: "阿里巴巴", target: "百川智能"},
+    {source: "阿里巴巴", target: "逐际动力"},
+    {source: "阿里巴巴", target: "OceanBase"},
+    {source: "阿里巴巴", target: "瀚博半导体"},
+    {source: "阿里巴巴", target: "来未来科技"},
+    {source: "阿里巴巴", target: "iSlide"},
+    {source: "阿里巴巴", target: "精准学"},
+    {source: "阿里巴巴", target: "Lazada"},
+    {source: "阿里巴巴", target: "优制娱乐"},
+    {source: "阿里巴巴", target: "长佩文学"},
+    {source: "阿里巴巴", target: "菜鸟网络"},
+    {source: "阿里巴巴", target: "MiniMax稀宇科技"},
+    {source: "阿里巴巴", target: "苏宁易购"},
+    {source: "阿里巴巴", target: "智谱AI"},
+    {source: "阿里巴巴", target: "奇点临近"},
+    {source: "阿里巴巴", target: "Wook"},
+    {source: "阿里巴巴", target: "Konvy.com"},
+    {source: "阿里巴巴", target: "东极六感"},
+    {source: "阿里巴巴", target: "Visible"},
+    {source: "阿里巴巴", target: "致敬未知"},
+    {source: "阿里巴巴", target: "JBD显耀显示"},
+    {source: "阿里巴巴", target: "左袋文化"},
+    {source: "阿里巴巴", target: "COFE App"},
+    {source: "阿里巴巴", target: "中测智绘"},
+    {source: "阿里巴巴", target: "杰成新能源"},
+    {source: "阿里巴巴", target: "WorldFirst"},
+    {source: "阿里巴巴", target: "博瑞迪"},
+    {source: "阿里巴巴", target: "小猴科技"},
+    {source: "阿里巴巴", target: "美小店"},
+    {source: "阿里巴巴", target: "恒宇医疗"}
+];
+
+        var option = {
+            title: {
+                text: '投资关系图'
+            },
+            tooltip: {},
+            legend: {},
+            series: [
+                {
+                    type: 'graph',
+                    layout: 'force',
+                    data: nodesData,
+                    links: linksData,
+                    roam: true,
+                    label: {
+                        show: true
+                    },
+
+                    force: { repulsion: 1000, friction: 0.5 }
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

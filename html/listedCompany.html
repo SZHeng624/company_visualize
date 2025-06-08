@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--我想要设计三个页面，一个是所有排名前500上市公司的概览（地理分布，企业资质统计，注册资金，融资轮次）分析。
+第二个是所有上榜科技公司的概览，
+第三个是具体的公司，如百度、阿里的具体的分析。
+请问首页的导航栏应该怎么设计标题 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Company Info, News and More">
+    <title>上市公司概览</title>
+    <link rel="stylesheet" href="../css/导航.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+	<link rel="stylesheet" href="../css/app copy.css" />
+
+    <link rel="stylesheet" href="../css/柱状图.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/inspector.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>
+    <script src="../js/导航.js"></script>
+    <script type="text/javascript" src = "../js/飞线图.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/echarts-map-china.js"></script>
+    
+    <script src = "../js/营收增速.js"></script>
+    <script src = "../js/A股.js"></script>
+    
+    <style>
+
+/* .wrapper-industy 的样式 */
+.wrapper-industy {
+    position: relative; /* 相对定位 */
+
+}
+
+    /* #chart 的样式 */
+    #chart {
+        width: 100%; /* 宽度为100% */
+        height: 100%; /* 高度为100% */
+        min-height: 800px; /* 最小高度为460px，根据需要调整 */
+        border-radius: 8px; /* 圆角边框 */
+    }
+
+    </style>
+</head>
+
+<body class="main">
+
+    <div id="header">
+        <!-- 横条 -->
+        <div class="horizontal-bar"></div>
+        <div class="header-wrapper container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="../image/上市公司.png" alt="可画公司 Logo" width="200">
+            </div>
+    
+            <!-- Navigation Bar -->
+            <div class="navbar"> 
+                <ul class="navbar-wrapper">
+                    <li class="navbar-active navbar-item"><a href="../html/main.html">首页</a></li>
+                    <li class="navbar-item"><a href="../html/listedCompany.html">上市公司</a></li>
+                    <li class="navbar-item"><a href="../html/techcompany.html">科技公司</a></li>
+                    <li class="navbar-item dropdown">
+                        <a href="../html/Alibaba.html" class="dropdown-toggle">阿里巴巴</a>
+                    </li>
+                    <li class="navbar-item"><a href="#">联系我们</a></li>
+                    <li class="navbar-item navbar-code"><a href="#">扫码咨询</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <h2 style="text-align: center">
+        中国各省份上市公司分布
+    </h2>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row fill-h">
+                <div class="col-lg-6 fill-h">
+                    <div class="xpanel-wrapper xpanel-wrapper-1">
+
+                        <div class="xpanel">
+                            <!-- 地图飞线 -->
+                            <div class="fill-h" id="flyMap"></div>
+                        </div>
+
+                    </div>
+
+ 
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript" src = "../js/飞线图.js"></script>
+    <h2 style="text-align: center;">A股企业净利润与营业收入柱状图</h2>
+    
+    <!-- 创建两个独立的图表容器 -->
+    <div class="chart-container">
+        <div id="revenueChart" class="chart"></div>
+        <div id="profitChart" class="chart"></div>
+        
+    </div>
+
+    <script src="../js/A股.js"></script>
+    </div>
+    <h2 style="text-align: center;">
+        2024年上半年各行业增速分析
+    </h2>
+    <div class="wrapper-industy" style="position: relative;">
+        <div id="chart"></div>
+        <script src = "../js/营收增速.js"></script>
+    </div>
+    
+    <h2 style = "text-align: center;">
+        2024年《财富》中国500强公司竞赛图
+    </h2>
+
+
+            <script type="module">
+        
+                import define from "../js/index.js";
+                import {Runtime, Library, Inspector} from "../js/runtime.js";
+                
+                const runtime = new Runtime();
+                const main = runtime.module(define, Inspector.into(document.body));
+                
+            </script>
+
+
+        <div>
+
+            <p style="position: relative; 
+            padding: 20px; font-size: 18px; line-height: 1.8; 
+            background: rgba(0, 0, 0, 0.5); color: white; 
+            border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+            text-align: left; font-family: 'Arial', sans-serif; 
+            transition: all 0.3s ease-in-out;">
+            依据2010-2024年度Fortune公司发布的《财富》中国500强排行榜中的公司的营业收入。
+            同时包括了上市和非上市企业。依据榜单及其数据，可以了解中国最大企业的最新发展趋势。</p>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

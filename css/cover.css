@@ -1,0 +1,51 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    /* 设置默认字体 */
+}
+
+.cover {
+    height: 100%;
+    background-image: url('../image/可画公司.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.content {
+    max-width: 600px;
+    margin-left: -500px;
+    /* 调整偏左的距离 */
+    font-family: 'Times New Roman', serif;
+    /* 设置内容区域的字体 */
+}
+
+h1 {
+    font-size: 52px;
+    /* 设置标题字体大小 */
+}
+
+p {
+    font-size: 28px;
+    /* 设置段落字体大小 */
+}
+
+.button {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 50px;
+    /* 设置按钮字体大小 */
+    margin-top: 20px;
+    font-family: 'Times New Roman', serif;
+    /* 设置按钮的字体 */
+}

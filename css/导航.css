@@ -1,0 +1,217 @@
+/* 导航栏 */
+#header {
+    width: 100%;
+    overflow: hidden;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* 水平方向溢出部分不展示 */
+    overflow-y: visible;
+    /* 垂直方向溢出部分展示 */
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    color: #333;
+    font-size: 14px;
+}
+
+/* header-wrapper 用于布局调整 */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 94px;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* 横条 */
+.horizontal-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #112c67;
+}
+
+/* Logo容器 */
+.logo {
+    width: 220px;
+    height: 100px;
+}
+
+/* Logo图片 */
+.logo img {
+    width: 220px;
+    height: 100px;
+}
+
+/* 导航栏样式 */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.navbar-wrapper {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-item {
+    font-size: 20px;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navbar-item:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    /* 初始宽度为0 */
+    height: 2px;
+    background-color: #0C418E;
+    transition: width 0.3s ease, left 0.3s ease;
+    /* 添加过渡效果 */
+}
+
+.navbar-item:hover:after {
+    width: 100%;
+    /* 悬停时宽度变为100% */
+}
+
+.navbar-active a {
+    color: #0C418E;
+}
+
+.navbar-active:after {
+    width: 100%;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: #0C418E;
+}
+
+/* .navbar-active:after {
+    width: 100%;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: #0C418E;
+} */
+
+
+
+
+.navbar-wrapper a {
+    text-decoration: none;
+}
+
+.navbar-code {
+    color: #ff8f2b;
+}
+
+.navbar-code a {
+    font-size: 20px;
+    color: #ff8f2b;
+}
+
+/* .navbar-active a {
+    color: #0C418E;
+}
+
+.navbar-active:after {
+    width: 100%;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 2px;
+    background-color: #0C418E;
+} */
+
+
+
+
+
+
+
+
+
+/* 下拉菜单样式 */
+.dropdown {
+    position: relative;
+}
+
+/* 隐藏下拉菜单 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    padding-left: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    /* 设置下拉菜单的宽度 */
+    z-index: 1000;
+    /* 确保下拉菜单在其他元素之上 */
+    opacity: 0;
+    /* 初始透明度为0 */
+    transition: opacity 0.3s ease;
+    /* 平滑过渡效果 */
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+/* 当鼠标悬停时显示下拉菜单 */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    /* 悬停时渐变显示 */
+}
+
+/* 下拉菜单项 */
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    /* 每项之间的分隔线 */
+}
+
+/* 下拉菜单项的链接 */
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+/* 鼠标悬停时改变下拉菜单项的背景色 */
+.dropdown-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+/* 去掉最后一项的底部边框 */
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}

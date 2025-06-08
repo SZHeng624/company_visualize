@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%;">
+<head>
+    <meta charset="utf-8">
+    <title>动态关系图</title>
+    <!-- 引入 ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <style>
+        /* 设置容器的宽高 */
+        #main {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="height: 100%; margin: 0; overflow: hidden;">
+    <div id="main"></div>
+    <script>
+        // 初始化图表
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 图表的配置项
+        var option = {
+            tooltip: {
+                formatter: '{b}' // 鼠标悬停显示节点名称
+            },
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series: [{
+                type: 'graph',
+                layout: 'force', // 设置力导向布局
+                force: {
+                    repulsion: 100, // 相互排斥的强度
+                    edgeLength: [50, 200], // 边的长度范围
+                    layoutAnimation: true
+                },
+                roam: true, // 允许缩放和平移
+                draggable: true, // 允许节点拖拽
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{b}'
+                },
+                data: [
+                    { name: 'A', value: [100, 100], symbolSize: 40 },
+                    { name: 'B', value: [300, 300], symbolSize: 40 },
+                    { name: 'C', value: [500, 500], symbolSize: 40 },
+                    { name: 'D', value: [700, 300], symbolSize: 40 },
+                    { name: 'E', value: [200, 500], symbolSize: 40 },
+                    { name: 'F', value: [600, 200], symbolSize: 40 },
+                    { name: 'G', value: [400, 400], symbolSize: 40 }
+                ],
+                edges: [
+                    { source: 'A', target: 'B' },
+                    { source: 'B', target: 'C' },
+                    { source: 'C', target: 'D' },
+                    { source: 'D', target: 'A' },
+                    { source: 'A', target: 'E' },
+                    { source: 'B', target: 'F' },
+                    { source: 'C', target: 'G' }
+                ]
+            }]
+        };
+
+        // 使用配置项填充图表
+        myChart.setOption(option);
+
+        // 允许节点拖动并更新位置
+        myChart.on('drag', function (params) {
+            console.log(params);
+        });
+    </script>
+</body>
+</html>
